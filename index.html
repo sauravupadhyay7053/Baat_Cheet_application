@@ -1,0 +1,53 @@
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baat CHEET</title>
+  <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
+  <script defer src="client.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style id="dynamic-style"></style>
+  <script>
+    // Function to generate a random bright color in hexadecimal format
+    function getRandomBrightColor() {
+      const letters = '89ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * letters.length)];
+      }
+      return color;
+    }
+
+    // Function to update the body's background color and text color
+    function updateBodyColor() {
+      const body = document.body;
+      const dynamicStyle = document.getElementById('dynamic-style');
+      const color = getRandomBrightColor();
+      body.style.backgroundColor = color;
+    //   body.style.color = getContrastingColor(color);
+      dynamicStyle.textContent = `nav, .btn:hover { background-color: ${color}; }`;
+    }
+
+
+    // Update the body's color initially and every 5 seconds
+    updateBodyColor();
+    setInterval(updateBodyColor, 5000);
+  </script>
+</head>
+<body>
+  <nav>
+    <img class="logo" src="talk.png" alt="">
+    <h1>Welcome to Baat Cheet instant connection hamesha</h1>
+  </nav>
+  <div class="container"></div> 
+  <div class="send">
+    <form action="#" id="send-container">
+      <input type="text" name="messageInp" id="messageInp">
+      <button class="btn" type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>
